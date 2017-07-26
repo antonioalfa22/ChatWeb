@@ -21,5 +21,18 @@ function render(data) {
 		`);
 	}).join(' ');
 
-	document.getElementById('mensajes').innerHTML = html;
+	var div_mensajes = document.getElementById('mensajes');
+	div_mensajes.innerHTML = html;
+	div_mensajes.scrollTop = div_mensajes.scrollHeigth;
+}
+
+//MONSTRAR MENSAJES QUE MANDA EL CLIENTE EN EL CHAT
+function addMensaje(e) {
+	var mensaje = {
+		nickname: document.getElementById('nickname').value,
+		text: document.getElementById('texto').value
+	}
+	nickname: document.getElementById('nickname').style.display = 'none'; //Para no cambiar el nombre de usuario despues
+	socket.emit('add-mensaje',mensaje);
+	return false;
 }

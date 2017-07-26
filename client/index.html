@@ -5,14 +5,38 @@
 	<meta name="viewport" content="width=device-width, inital-scale=1.0">
 	<meta name="author" content="Antonio Paya Gonzalez">
 	<meta name="description" content="Chat web con NodeJS,Express y Socket.io">
+
 	<title>Chat con NodeJS,Express y Socket.io</title>
+
 	<script src="/socket.io/socket.io.js" type="text/javascript" ></script>
 	<script src="main.js"></script>
+
+	<style>
+		#mensajes{
+			width: 95%;
+			max-width: 400px;
+			height: 350px;
+			overflow-y: scroll;
+			border: 1px solid #eee;
+			box-shadow: 0px 0px 20px #ccc inset;
+		}
+		.mensaje{
+			margin: 20px;
+			padding: 5px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			background: white;
+		}
+	</style>
+
 </head>
 <body>
 	<h1>Chat con NodeJS,Express y Socket.io</h1>
-	<div id="mensajes">
-		
-	</div>
+	<div id="mensajes"></div>
+	<form onsubmit="return addMensaje(this);">
+		<input type="text" id="nickname" placeholder="nick">
+		<textarea id="texto" placeholder="Mensaje..."></textarea>
+		<input type="submit" value="Enviar">
+	</form>
 </body>
 </html>

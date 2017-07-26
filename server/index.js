@@ -33,5 +33,10 @@ var mensajes = [{
 io.on('connection',function(socket){
 	console.log("El nodo con IP: "+socket.handshake.address+" se ha conectado.");
 	socket.emit('mensajes',mensajes);
+	socket.on('add-mensaje',function(data){
+		mensajes.push(data);
+		io.sockets.emit('mensajes',mensajes);
+	});
+
 });
 
